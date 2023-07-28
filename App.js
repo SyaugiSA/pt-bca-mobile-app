@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./app/screens/Auth/LoginScreen";
+import HeaderComponent from "./app/components/HeaderComponent";
+import LandingPage from "./app/screens/Auth/LandingPage";
+import Register from "./app/screens/Auth/Register";
+import Homepage from "./app/screens/Homepage/Homepage";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          animation: "fade_from_bottom",
+          header: (props) => (
+            <HeaderComponent {...props} title={props.route.name} />
+          ),
+        }}
+      >
+        <Stack.Screen
+          name="LandingPage"
+          component={LandingPage}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            headerTitle: "Login",
+          }}
+        />
+        <Stack.Screen
+          name="RegisterScreen"
+          component={Register}
+          options={{ headerTitle: "Register" }}
+        />
+        <Stack.Screen
+          name="Homepage"
+          component={Homepage}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
