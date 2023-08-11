@@ -1,4 +1,4 @@
-import React, {useState, createRef} from 'react';
+import React, { useState, createRef } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -7,43 +7,39 @@ import {
   ScrollView,
   Image,
   Keyboard,
-  Pressable, 
-  
+  Pressable,
   KeyboardAvoidingView,
-} from 'react-native';
+} from "react-native";
 
-
-const LoginScreen = ({navigation}) => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+const LoginScreen = ({ navigation }) => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState('');
+  const [errortext, setErrortext] = useState("");
 
   const passwordInputRef = createRef();
 
-  
-
   return (
     <View style={styles.mainBody}>
-      {/* <Loader loading={loading} /> */}
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           flex: 1,
-          justifyContent: 'center',
-          alignContent: 'center',
-        }}>
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      >
         <View>
           <KeyboardAvoidingView enabled>
-            <View style={{alignItems: 'center'}}>
+            <View style={{ alignItems: "center" }}>
               <Image
                 source={{
-                    uri:'https://reactnative.dev/img/tiny_logo.png'
+                  uri: "https://reactnative.dev/img/tiny_logo.png",
                 }}
                 style={{
-                  width: '50%',
+                  width: "50%",
                   height: 100,
-                  resizeMode: 'contain',
+                  resizeMode: "contain",
                   margin: 30,
                 }}
               />
@@ -51,17 +47,14 @@ const LoginScreen = ({navigation}) => {
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={(UserEmail) =>
-                  setUserEmail(UserEmail)
-                }
+                onChangeText={(UserEmail) => setUserEmail(UserEmail)}
                 placeholder="Enter Email" //dummy@abc.com
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
                 onSubmitEditing={() =>
-                  passwordInputRef.current &&
-                  passwordInputRef.current.focus()
+                  passwordInputRef.current && passwordInputRef.current.focus()
                 }
                 underlineColorAndroid="#f000"
                 blurOnSubmit={false}
@@ -70,9 +63,7 @@ const LoginScreen = ({navigation}) => {
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={(UserPassword) =>
-                  setUserPassword(UserPassword)
-                }
+                onChangeText={(UserPassword) => setUserPassword(UserPassword)}
                 placeholder="Enter Password" //12345
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
@@ -84,21 +75,20 @@ const LoginScreen = ({navigation}) => {
                 returnKeyType="next"
               />
             </View>
-            {errortext != '' ? (
-              <Text style={styles.errorTextStyle}>
-                {errortext}
-              </Text>
+            {errortext != "" ? (
+              <Text style={styles.errorTextStyle}>{errortext}</Text>
             ) : null}
             <Pressable
               style={styles.buttonStyle}
               activeOpacity={0.5}
-              onPress={() => navigation.navigate('Homepage')}
-              >
+              onPress={() => navigation.navigate("Homepage")}
+            >
               <Text style={styles.buttonTextStyle}>Login</Text>
             </Pressable>
             <Text
               style={styles.registerTextStyle}
-              onPress={() => navigation.navigate('RegisterScreen')}>
+              onPress={() => navigation.navigate("RegisterScreen")}
+            >
               New Here ? Register
             </Text>
           </KeyboardAvoidingView>
@@ -112,12 +102,12 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-    alignContent: 'center',
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    alignContent: "center",
   },
   SectionStyle: {
-    flexDirection: 'row',
+    flexDirection: "row",
     height: 40,
     marginTop: 20,
     marginLeft: 35,
@@ -125,12 +115,12 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: "#7DE24E",
     borderWidth: 0,
-    color: '#FFFFFF',
-    borderColor: '#7DE24E',
+    color: "#FFFFFF",
+    borderColor: "#7DE24E",
     height: 40,
-    alignItems: 'center',
+    alignItems: "center",
     borderRadius: 30,
     marginLeft: 35,
     marginRight: 35,
@@ -138,31 +128,30 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   buttonTextStyle: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     paddingVertical: 10,
     fontSize: 16,
-    
   },
   inputStyle: {
     flex: 1,
-    color: 'black',
+    color: "black",
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: '#dadae8',
+    borderColor: "#dadae8",
   },
   registerTextStyle: {
-    color: '#000',
-    textAlign: 'center',
-    fontWeight: 'bold',
+    color: "#000",
+    textAlign: "center",
+    fontWeight: "bold",
     fontSize: 14,
-    alignSelf: 'center',
+    alignSelf: "center",
     padding: 10,
   },
   errorTextStyle: {
-    color: 'red',
-    textAlign: 'center',
+    color: "red",
+    textAlign: "center",
     fontSize: 14,
   },
 });

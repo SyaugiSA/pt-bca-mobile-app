@@ -25,6 +25,14 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Citra Asia Mobile to use your location."
+        }
+      ]
+    ]
   }
 }

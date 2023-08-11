@@ -3,10 +3,10 @@ import React from 'react'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { black } from '../../resource/colors'
 
-const CardDashboard = ({title, source,customStyle, keyValue}) => {
+const CardDashboard = ({title, source,customStyle, keyValue, onPress}) => {
   return (
     <View key={keyValue} className='bg-gray-100 rounded-md flex justify-center' style={styles.container} >
-      <Pressable onPress={() => console.log('pressed')} className=' items-center'>
+      <Pressable onPress={onPress} className=' items-center'>
       <Image source={source} style={[styles.image, customStyle]} />
       <Text style={styles.textTitle} className='mt-3'>{title}</Text>
       </Pressable> 

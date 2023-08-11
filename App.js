@@ -7,6 +7,9 @@ import HeaderComponent from "./app/components/HeaderComponent";
 import LandingPage from "./app/screens/Auth/LandingPage";
 import Register from "./app/screens/Auth/Register";
 import Homepage from "./app/screens/Homepage/Homepage";
+import QuisionerScreenFirst from "./app/screens/QuisionerScreen/QuisionerScreenFirst";
+import QuisionerScreenSecond from "./app/screens/QuisionerScreen/QuisionerScreenSecond";
+import SurveyCompetitor from "./app/screens/SurveyScreen/SurveyCompetitor";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +46,21 @@ function App() {
         <Stack.Screen
           name="Homepage"
           component={Homepage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuisScreenFirst"
+          component={QuisionerScreenFirst}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QuisScreenSecond"
+          component={QuisionerScreenSecond}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SurveyCompetitor"
+          component={SurveyCompetitor}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
