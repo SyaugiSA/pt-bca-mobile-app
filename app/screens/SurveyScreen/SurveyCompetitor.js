@@ -23,7 +23,8 @@ export default function SurveyCompetitor() {
       } 
 
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+      let loc = `${location.coords.latitude}, ${location.coords.longitude}`;
+      setLocation(loc);
     })();
   }, []);
 
@@ -36,7 +37,8 @@ export default function SurveyCompetitor() {
 const getLocInput = async () => {
     console.log('test');
     let location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
+    let loc = `${location.coords.latitude}, ${location.coords.longitude}`;
+    setLocation(loc);
     let text = 'Waiting..';
     if (errorMsg) {
       text = errorMsg;
